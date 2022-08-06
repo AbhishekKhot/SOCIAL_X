@@ -26,4 +26,6 @@
     <string name="bbc_news">BBC News</string>
     <string name="description_of_actual_new_goes_here">Description of actual new goes here</string>
     <string name="news_title_goes_here">News Title goes here</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

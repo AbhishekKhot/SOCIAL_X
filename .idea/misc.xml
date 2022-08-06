@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/SocialX/app/src/main/res/drawable/search_view_background.xml" value="0.1055" />
         <entry key="..\:/SocialX/app/src/main/res/layout/activity_main.xml" value="0.16145833333333334" />
         <entry key="..\:/SocialX/app/src/main/res/layout/activity_news.xml" value="0.16666666666666666" />
+        <entry key="..\:/SocialX/app/src/main/res/layout/fragment_forgot_password.xml" value="0.17552083333333332" />
+        <entry key="..\:/SocialX/app/src/main/res/layout/fragment_login.xml" value="0.17552083333333332" />
+        <entry key="..\:/SocialX/app/src/main/res/layout/fragment_main.xml" value="0.16145833333333334" />
+        <entry key="..\:/SocialX/app/src/main/res/layout/fragment_signup.xml" value="0.16145833333333334" />
         <entry key="..\:/SocialX/app/src/main/res/layout/news_item.xml" value="0.3306613226452906" />
       </map>
     </option>

@@ -2,8 +2,6 @@ package com.example.socialx.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.socialx.R
@@ -40,7 +38,7 @@ class NewsAdapter(var list:MutableList<Article>) : RecyclerView.Adapter<NewsAdap
             tvPublishedAt.text = article.publishedAt.toString()
         }
         Glide.with(holder.itemView).load(article.urlToImage)
-            .placeholder(R.drawable.ic_image_placeholder).into(holder.binding.ivArticleImage)
+            .placeholder(R.drawable.ic_image).into(holder.binding.ivArticleImage)
     }
 
     override fun getItemCount(): Int = list.size
