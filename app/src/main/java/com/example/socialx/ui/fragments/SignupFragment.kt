@@ -10,6 +10,12 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.socialx.R
 import com.example.socialx.databinding.FragmentSignupBinding
+import com.facebook.AccessToken
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -17,7 +23,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import java.util.*
 
 class SignupFragment : Fragment() {
 
@@ -26,7 +34,7 @@ class SignupFragment : Fragment() {
     private lateinit var gso: GoogleSignInOptions
     private lateinit var gsc: GoogleSignInClient
 
-    //  private var mCallbackManager: CallbackManager? = null
+    private var mCallbackManager: CallbackManager? = null
     private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreateView(
@@ -40,7 +48,7 @@ class SignupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //   mCallbackManager = CallbackManager.Factory.create()
+        mCallbackManager = CallbackManager.Factory.create()
 
         gso =
             GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build()
@@ -89,7 +97,37 @@ class SignupFragment : Fragment() {
 
 
     private fun facebookSignIn() {
-        TODO("Not yet implemented")
+        LoginManager.getInstance().logInWithReadPermissions(requireActivity(),
+            Arrays.asList("email", "public_profile"))
+        LoginManager.getInstance()
+            .registerCallback(mCallbackManager, object : FacebookCallback<LoginResult> {
+                override fun onSuccess(loginResult: LoginResult) {
+                    handleFacebookAccessToken(loginResult.accessToken)
+                }
+
+                override fun onCancel() {
+
+                }
+
+                override fun onError(error: FacebookException) {
+
+                }
+            })
+    }
+
+    private fun handleFacebookAccessToken(accessToken: AccessToken?) {
+        val credential = FacebookAuthProvider.getCredential(accessToken!!.token)
+        firebaseAuth.signInWithCredential(credential)
+            .addOnCompleteListener(requireActivity()
+            ) { p0 ->
+                if (p0.isSuccessful) {
+
+                    findNavController().navigate(R.id.action_mainFragment_to_newsActivity)
+                } else {
+                    Toast.makeText(requireActivity(), "Authentication failed", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

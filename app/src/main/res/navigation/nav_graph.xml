@@ -15,7 +15,8 @@
             app:destination="@id/forgotPasswordFragment" />
         <action
             android:id="@+id/action_mainFragment_to_newsActivity"
-            app:destination="@id/newsActivity" />
+            app:destination="@id/newsActivity"
+            app:popUpTo="@id/newsActivity" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"

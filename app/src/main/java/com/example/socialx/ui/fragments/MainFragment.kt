@@ -1,10 +1,13 @@
 package com.example.socialx.ui.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.graphics.drawable.toDrawable
+import androidx.core.graphics.toColor
 import androidx.navigation.fragment.findNavController
 import com.example.socialx.R
 import com.example.socialx.databinding.FragmentMainBinding
@@ -36,6 +39,8 @@ class MainFragment : Fragment() {
         binding.viewpager.adapter = adapter
         binding.viewpagerTab.setViewPager(binding.viewpager)
 
+        binding.viewpager.currentItem.toColor().toDrawable().color=Color.WHITE
+
     }
 
     override fun onStart() {
@@ -44,5 +49,4 @@ class MainFragment : Fragment() {
             findNavController().navigate(R.id.action_mainFragment_to_newsActivity)
         }
     }
-
 }

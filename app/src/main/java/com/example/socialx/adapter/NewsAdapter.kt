@@ -34,7 +34,7 @@ class NewsAdapter(var list:MutableList<Article>) : RecyclerView.Adapter<NewsAdap
         holder.binding.apply {
             tvTitle.text = article.title
             tvDescription.text = article.description
-            tvSource.text = article.source.toString()
+            tvSource.text = article.source.name.toString()
             tvPublishedAt.text = article.publishedAt.toString()
         }
         Glide.with(holder.itemView).load(article.urlToImage)

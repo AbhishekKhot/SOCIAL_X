@@ -7,6 +7,7 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.socialx.R
 import com.example.socialx.adapter.NewsAdapter
@@ -82,4 +83,5 @@ class NewsActivity : AppCompatActivity() {
         }
         newsAdapter.filterAdapter(filteredList)
     }
+
 }
