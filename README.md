@@ -4,9 +4,9 @@ Functionalities
 
 Google and Facebook Signin
 
-Email and password Signin
+Email and password Signin and password reset functions
 
-News Article shwon in App
+News Article shown in App 
 
 
 Tech Used
@@ -15,15 +15,15 @@ Firebase Authentication
 
 REST API
 
-Kotlin coroutines
+Kotlin coroutines for asynchronous network calls
 
-Retorfit library
+Retorfit library for making Network request
 
-Glide Library
+Glide Library image loding library
 
-MVVM artchitecture
+MVVM artchitecture scalabe android app developement architecture pattern
 
-Navigation component
+Navigation component for smooth navigation through ui components
 
 
 
