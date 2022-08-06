@@ -23,5 +23,7 @@ Glide Library
 
 MVVM artchitecture
 
+Navigation component
+
 
 
